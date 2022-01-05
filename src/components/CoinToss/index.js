@@ -12,8 +12,10 @@ export class CoinToss extends Component {
 
     tossCoin = () => {
         const { tossStatus } = this.state
+        const random = Boolean(Math.round(Math.random()));
+        this.setState({ tossStatus: random })
         {
-            tossStatus ?
+            random ?
                 this.setState(prevState => ({
                     tossStatus: false,
                     totalCount: prevState.totalCount + 1,
@@ -26,23 +28,6 @@ export class CoinToss extends Component {
                 }))
         }
     }
-
-    totalCount = () => {
-        const { tossStatus } = this.status
-        {
-            tossStatus === "https://assets.ccbp.in/frontend/react-js/heads-img.png" ?
-                this.setState(prevState => ({
-                    totalCount: prevState.totalCount + 1,
-                    Heads: prevState.Heads + 1
-                })) :
-                this.setState(prevState => ({
-                    totalCount: prevState.totalCount + 1,
-                    Tails: prevState.Heads + 1
-                }))
-        }
-
-    }
-
 
     render(props) {
         const { tossStatus } = this.state
